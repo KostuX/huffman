@@ -299,55 +299,48 @@ public class Gui extends JFrame implements ActionListener{
 		
 		
 		
-		
-		
-		
-		
 		if(e.getSource().equals(generate_dataset)) {
-			String str = "sstps";
+			String str = txt_Area.getText();
 			String charString = "";
 			int frequency = 1;
 			
+			
+			List_To_Tree makeTree = new List_To_Tree();
 			List<Char_Set> char_Sets = new ArrayList<>();
+			List<TreeNode> nodeList = new ArrayList<>();
 			
 			
 			
 			for (int i = 0; i < str.length(); i++) {
 				
 				if(!charString.contains(str.charAt(i)+"")) {
+					charString = charString + str.charAt(i);
 					char_Sets.add(new Char_Set(str.charAt(i),frequency ));
-					System.out.println("here");
 				}	
 				
-				else {
-					
+				else {					
 					for (Char_Set char_Set : char_Sets) {
-						
 						if (char_Set.getCharacter() == str.charAt(i)) {
-							
-							System.out.println(str.charAt(i));
-							
-							char_Set.setFrequency(char_Set.getFrequency()+1); ;
-							
+							char_Set.setFrequency(char_Set.getFrequency()+1); 
 						}
-						
 					}
-					
 				}
+			}
+			
+			for (Char_Set char_Set : char_Sets) {
+			 nodeList.add( new TreeNode(char_Set));
 			}
 				
 			
-		
-		
-		char_Sets.forEach(System.out::println);
-		
-		
-		
+				
+			TreeNode text_tree  = makeTree.list_To_Tree(nodeList);
+		//nodeList.forEach(a->System.out.println(a.getItem().getCharacter() + " "+a.getItem().getFrequency() ) );
 		
 		
 		
+		Huffman.node_List = nodeList;
+		Huffman.currTree = text_tree;
 		
-		//	System.out.println(char_Sets.get(0).getFrequency());
 		}
 		
 		//TODO: alot

@@ -23,6 +23,7 @@ public class Huffman {
 	public static  TreeNode default_frequency_Tree;
 	public static List<TreeNode> default_node_List;	
 	
+	
 	public static List<TreeNode> node_List;	
 	public static  TreeNode currTree;
 	public static File currFile;
