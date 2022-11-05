@@ -141,13 +141,17 @@ public class Gui extends JFrame implements ActionListener{
 		
 		txt_Area = new JTextArea();
 		txt_Area.setPreferredSize(new Dimension(250, 150));
-		txt_Area.setText("text");
+		txt_Area.setText("HelloWorld");
 		txt_Area.setLineWrap(true);
 		txt_Area.setWrapStyleWord(true);
 		
+		
+	
+		
+		
 		bit_Area = new JTextArea();
 		bit_Area.setPreferredSize(new Dimension(250, 150));
-		bit_Area.setText("bitcode");
+		bit_Area.setText("...");
 		bit_Area.setLineWrap(true);
 		bit_Area.setWrapStyleWord(true);
 		
@@ -155,7 +159,7 @@ public class Gui extends JFrame implements ActionListener{
 		info_Area.setPreferredSize(new Dimension(250, 100));
 		info_Area.setEditable(false);
 		info_Area.setBackground(getForeground());
-		info_Area.setText("info");
+		info_Area.setText("Summary..");
 		
 
         //JScrollPane scrollPane_txt = new JScrollPane(txt_Area);
@@ -215,8 +219,8 @@ public class Gui extends JFrame implements ActionListener{
 		contentPane.add(outerPanel);
 			
 		this.setTitle("Huffman");
-		this.setSize(300, 600);
-		this.setLocation(200, 200);
+		this.setSize(300, 650);
+		this.setLocation(500, 200);
 		this.setVisible(true);
 		this.setResizable(false);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);	
