@@ -161,17 +161,10 @@ public class Gui extends JFrame implements ActionListener{
 		info_Area.setBackground(getForeground());
 		info_Area.setText("Summary..");
 		
-
-        //JScrollPane scrollPane_txt = new JScrollPane(txt_Area);
-        //JScrollPane scrollPane_bit = new JScrollPane(bit_Area);
-		
- 
 		
 		JLabel title = new JLabel();
 		
 		ImageIcon iconLogo = new ImageIcon("src/Img/Logo.png");
-		//ImageIcon icon = new ImageIcon(image); 
-		//JLabel thumb = new JLabel();
 		title.setIcon(iconLogo);
 		
 		
@@ -243,27 +236,23 @@ public class Gui extends JFrame implements ActionListener{
 		
 		
 		if(e.getSource().equals(import_Menu_Text)) {
-			String string = "";
-			
-			string = 	Huffman.reader.file_to_String();			
-			txt_Area.setText(string);
+			String string = Huffman.reader.file_to_String();
+			if (string != null) {txt_Area.setText(string);} 
 			}
 		
+		
 		if(e.getSource().equals(import_Menu_Code)) {
-		String string = "";
-			
-			string = 	Huffman.reader.file_to_String();			
-			bit_Area.setText(string);
+		    String string = Huffman.reader.file_to_String();
+			if (string != null) {bit_Area.setText(string);} 
 			}
+		
 		if(e.getSource().equals(export_Menu_Text)) {
 			Huffman.reader.string_to_file(txt_Area.getText());
 			}
+		
 		if(e.getSource().equals(export_Menu_Code)) {
 			Huffman.reader.string_to_file(bit_Area.getText());
 			}
-		
-		
-		//TODO: test
 	
 		if(e.getSource().equals(default_dataset)) {
 			
@@ -271,23 +260,21 @@ public class Gui extends JFrame implements ActionListener{
 			Huffman.node_List =  new ArrayList<>(Huffman.default_node_List) ;
 		}
 		
-		
-		
+
 		if(e.getSource().equals(custom_dataset)) {
 			
-			
-		File file =	Huffman.reader.fileChooser();
+		File file = Huffman.reader.fileChooser();
 		
+		if(file != null)
+		{
 		
 			List_To_Tree makeTree = new List_To_Tree();
 			List<TreeNode> node_List = null;
 			
 			try {
 				Huffman.node_List = Huffman.reader.file_to_List(file);
-				
-				
-
-			} catch (IOException e1) {
+			} 
+			catch (IOException e1) {
 				// TODO Auto-generated catch block
 				System.out.println("Cant open file");
 				
@@ -297,7 +284,7 @@ public class Gui extends JFrame implements ActionListener{
 		
 			Huffman.currTree = frequency_Tree;
 			
-			
+		}
 			}
 		
 		
@@ -357,8 +344,7 @@ public class Gui extends JFrame implements ActionListener{
 				out = out + node.getItem().getCharacter() + "\t" + node.getItem().getFrequency()+"\n";
 				
 			}
-			//System.out.println(out);
-			Huffman.reader.string_to_file(out);
+				Huffman.reader.string_to_file(out);
 			}
 		
 		if(e.getSource().equals(dataset_export_bit)) {

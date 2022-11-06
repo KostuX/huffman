@@ -58,15 +58,17 @@ public void string_to_file(String str) {
 public String file_to_String(){
 	 
 		File file = fileChooser();
-	     String str;
+	     String str = null;
+	     
+	     if(file != null) {
 	try {
-		str = Files.readString(file.toPath());
+		return str = Files.readString(file.toPath());
 	} catch (IOException e) {
 		// TODO Auto-generated catch block
 		System.out.println("Log: open file - no file selected");
 		str = "error opening file";
 	}
-
+	     }
 	 return str;
  }
  
