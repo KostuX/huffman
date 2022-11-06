@@ -50,7 +50,7 @@ public void string_to_file(String str) {
 		  myWriter.close();
 		  
 		  } catch (IOException e) {
-			  System.out.println("Log: write file - no file selected");
+			 // System.out.println("Log: write file - no file selected");
 			  }
 		 
  }
@@ -77,7 +77,7 @@ public String file_to_String(){
 	 File file;   
 	
 	JFileChooser fileChooser = new JFileChooser();	
-	FileNameExtensionFilter extensionFilter = new FileNameExtensionFilter("TEXT FILES", "txt", "text");
+	FileNameExtensionFilter extensionFilter = new FileNameExtensionFilter(".txt", "txt", "text");
 	fileChooser.setFileFilter(extensionFilter);
 	int optionVal=fileChooser.showOpenDialog(Gui.contentPane);
 	if (optionVal == JFileChooser.APPROVE_OPTION) {
@@ -85,7 +85,7 @@ public String file_to_String(){
 
 	} else {
 		file=null;
-	System.out.println("No File Found"); 
+	//System.out.println("No File Found"); 
 	}
 	
 
@@ -110,7 +110,7 @@ public  List<TreeNode> file_to_List(File file) throws IOException
 	    	 nodeList.add( new TreeNode(new Char_Set(s[0].charAt(0), Integer.parseInt(s[1]))) );	    
 	    	 charList.add(s[0].charAt(0));
 	    }
-	} catch (FileNotFoundException e) { e.printStackTrace();}
+	} catch (FileNotFoundException e) {System.out.println("No file selected");}
  
 	return nodeList;	  
 

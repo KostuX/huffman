@@ -29,14 +29,13 @@ public class Huffman {
 	public static File currFile;
 	
 
+	// Start of application 
+	
 	
 	public static void main(String[] args)  {
 		
-		
-		
-		//default_file = new File("src/LetterCountAscending.txt");	//default file for frequency table
 	    
-		
+	
 		reader = new Reader();		
 		List_To_Tree makeTree = new List_To_Tree();
 		currFile = default_file;
