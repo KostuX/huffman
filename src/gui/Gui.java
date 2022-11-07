@@ -259,9 +259,11 @@ public class Gui extends JFrame implements ActionListener{
 			Huffman.currTree = Huffman.default_frequency_Tree;
 			Huffman.node_List =  new ArrayList<>(Huffman.default_node_List) ;
 		}
-		
+//---------------------------------------------------------------------------------------
+//--------------------------------------- custom_dataset --------------------------------
+//---------------------------------------------------------------------------------------
 
-		if(e.getSource().equals(custom_dataset)) {
+if(e.getSource().equals(custom_dataset)) {
 			
 		File file = Huffman.reader.fileChooser();
 		
@@ -280,18 +282,21 @@ public class Gui extends JFrame implements ActionListener{
 				
 			}
 			
-			TreeNode frequency_Tree = makeTree.list_To_Tree(Huffman.node_List);	
-		
+			TreeNode frequency_Tree = makeTree.list_To_Tree(Huffman.node_List);			
 			Huffman.currTree = frequency_Tree;
 			
 		}
 			}
 		
 		
+//---------------------------------------------------------------------------------------
+//--------------------------------------- generate_dataset --------------------------------
+//---------------------------------------------------------------------------------------
 		
 		
-		if(e.getSource().equals(generate_dataset)) {
-			String str = txt_Area.getText();
+if(e.getSource().equals(generate_dataset)) {
+	
+			String str = txt_Area.getText().toUpperCase();
 			String charString = "";
 			int frequency = 1;
 			

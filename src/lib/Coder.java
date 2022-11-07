@@ -67,8 +67,7 @@ public class Coder {
     str = str.toUpperCase();
     String out = "";
     
-    
-    
+
     for(int i = 0; i< str.length(); i++)
     {
 	if(!Huffman.reader.isCharOnList(str.charAt(i)) ) {out = out + str.charAt(i); }
