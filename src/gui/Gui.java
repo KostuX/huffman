@@ -171,6 +171,8 @@ public class Gui extends JFrame implements ActionListener{
 		encode.setFocusable(false);
 		encode.addActionListener(
 				(e)->{
+					if(generate_dataset.isSelected()){coder.fromString(txt_Area.getText());}
+					
 					String str = txt_Area.getText().trim();	
 					String unsuportedCharString = Huffman.reader.isCharOnList(str.toUpperCase());
 					if(unsuportedCharString.length() > 0 ) { 
@@ -181,7 +183,8 @@ public class Gui extends JFrame implements ActionListener{
 						bit_Area.setText(coder.encode(str));
 						info_Area.setText(Huffman.reader.prepareStats(str, coder.encode(str),unsuportedCharString ));
 						
-						}
+						
+					}
 				);
 		JButton decode = new JButton("decode");
 		decode.setFocusable(false);
@@ -295,50 +298,14 @@ if(e.getSource().equals(custom_dataset)) {
 		
 if(e.getSource().equals(generate_dataset)) {
 	
-			String str = txt_Area.getText().toUpperCase();
-			String charString = "";
-			int frequency = 1;
+		coder.fromString(txt_Area.getText());
+			System.out.println(generate_dataset.isSelected());
 			
-			
-			List_To_Tree makeTree = new List_To_Tree();
-			List<Char_Set> char_Sets = new ArrayList<>();
-			List<TreeNode> nodeList = new ArrayList<>();
-			
-			
-			
-			for (int i = 0; i < str.length(); i++) {
-				
-				if(!charString.contains(str.charAt(i)+"")) {
-					charString = charString + str.charAt(i);
-					char_Sets.add(new Char_Set(str.charAt(i),frequency ));
-				}	
-				
-				else {					
-					for (Char_Set char_Set : char_Sets) {
-						if (char_Set.getCharacter() == str.charAt(i)) {
-							char_Set.setFrequency(char_Set.getFrequency()+1); 
-						}
-					}
-				}
-			}
-			
-			for (Char_Set char_Set : char_Sets) {
-			 nodeList.add( new TreeNode(char_Set));
-			}
-				
-			
-				
-			TreeNode text_tree  = makeTree.list_To_Tree(nodeList);
-		//nodeList.forEach(a->System.out.println(a.getItem().getCharacter() + " "+a.getItem().getFrequency() ) );
-		
-		
-		
-		Huffman.node_List = nodeList;
-		Huffman.currTree = text_tree;
 		
 		}
-		
-		//TODO: alot
+//---------------------------------------------------------------------------------------
+//--------------------------------------- dataset_export --------------------------------
+//---------------------------------------------------------------------------------------
 		
 		if(e.getSource().equals(dataset_export)) {
 			String out = "";

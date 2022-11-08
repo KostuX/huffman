@@ -1,6 +1,10 @@
 package lib;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import main.Huffman;
+import struct.Char_Set;
 import struct.TreeNode;
 
 public class Coder {
@@ -65,8 +69,9 @@ public class Coder {
     
     
     public String encode(String str) {
-    str = str.toUpperCase();
     String out = "";
+    str = str.toUpperCase();
+    
     
 
     for(int i = 0; i< str.length(); i++)
@@ -82,9 +87,11 @@ public class Coder {
 
 
 
-    String output = "not found";
+   String output = "not found";
     public String char_To_bitcode(TreeNode tree, String temp_bit, char character) {
 	    TreeNode curr_charSet = tree;
+	    
+	    
 
 		
 		if(tree.getItem().getBitcode() != null)
@@ -113,6 +120,49 @@ public class Coder {
 	}
 	
 	
+    
+    public void fromString(String input) {
+    	String str = input.toUpperCase();
+		String charString = "";
+		int frequency = 1;
+		
+		
+		List_To_Tree makeTree = new List_To_Tree();
+		List<Char_Set> char_Sets = new ArrayList<>();
+		List<TreeNode> nodeList = new ArrayList<>();
+		
+		
+		
+		for (int i = 0; i < str.length(); i++) {
+			
+			if(!charString.contains(str.charAt(i)+"")) {
+				charString = charString + str.charAt(i);
+				char_Sets.add(new Char_Set(str.charAt(i),frequency ));
+			}	
+			
+			else {					
+				for (Char_Set char_Set : char_Sets) {
+					if (char_Set.getCharacter() == str.charAt(i)) {
+						char_Set.setFrequency(char_Set.getFrequency()+1); 
+					}
+				}
+			}
+		}
+		
+		for (Char_Set char_Set : char_Sets) {
+		 nodeList.add( new TreeNode(char_Set));
+		}
+			
+		
+			
+		TreeNode text_tree  = makeTree.list_To_Tree(nodeList);
+	//nodeList.forEach(a->System.out.println(a.getItem().getCharacter() + " "+a.getItem().getFrequency() ) );
+	
+	
+	
+	Huffman.node_List = nodeList;
+	Huffman.currTree = text_tree;
+    }
 	
 
 	
