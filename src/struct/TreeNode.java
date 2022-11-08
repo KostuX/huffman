@@ -1,5 +1,4 @@
-package lib;
-
+package struct;
 
 public class TreeNode 
 {

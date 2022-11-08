@@ -1,6 +1,7 @@
 package lib;
 
 import main.Huffman;
+import struct.TreeNode;
 
 public class Coder {
     
@@ -18,7 +19,7 @@ public class Coder {
     
     public String decode(String bitString)
     {
-	    String out = "";
+
 	    /*
 	     * bitString = bitString.replaceAll(" ", "\t "); String strArr[] =
 	     * bitString.split(" ");

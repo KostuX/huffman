@@ -4,21 +4,18 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.LookAndFeel;
 import javax.swing.UIManager;
-import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.UnsupportedLookAndFeelException;
 
 import gui.Gui;
 import lib.*;
 import lib.List_To_Tree;
-import queue.QueueArrayBased;
-import stack.StackReferenceBased;
+import struct.TreeNode;
 
 public class Huffman {
 	
 	//public  static TreeNode frequency_Tree;
-	public static Reader reader;
+	public static Reader reader = new Reader();	
 	public static final File default_file = new File("src/LetterCountAscending.txt");	//default file for frequency table
 	public static  TreeNode default_frequency_Tree;
 	public static List<TreeNode> default_node_List;	
@@ -27,17 +24,14 @@ public class Huffman {
 	public static List<TreeNode> node_List;	
 	public static  TreeNode currTree;
 	public static File currFile;
-	
+	static List_To_Tree makeTree = new List_To_Tree();
 
 	// Start of application 
 	
 	
 	public static void main(String[] args)  {
+
 		
-	    
-	
-		reader = new Reader();		
-		List_To_Tree makeTree = new List_To_Tree();
 		currFile = default_file;
 		
 		// Get list of nodes from file
@@ -49,19 +43,12 @@ public class Huffman {
 		try {
 			node_List = reader.file_to_List(currFile);
 			default_node_List = new ArrayList<>(node_List);
+			default_frequency_Tree  = makeTree.list_To_Tree(default_node_List);
+			currTree = default_frequency_Tree;
 		} catch (IOException e1) {
 			System.out.println("Cant open default file");
 		}
 		
-		// Take list of nodes and build Huffman binary tree
-		 try {
-			default_frequency_Tree  = makeTree.list_To_Tree(node_List);
-			currTree = default_frequency_Tree;
-			
-		} catch (Exception e1) {
-			// TODO Auto-generated catch block
-		System.out.println("error creating dafault tree from nodes");
-		}	
 		
 		
 		

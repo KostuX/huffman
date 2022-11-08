@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import struct.Char_Set;
+import struct.NodeComparator;
+import struct.TreeNode;
+
 public class List_To_Tree {
     
     public TreeNode list_To_Tree(List<TreeNode> node_List){

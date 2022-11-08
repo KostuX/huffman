@@ -2,17 +2,14 @@ package lib;
 
 import java.io.*;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
-
-import org.w3c.dom.Document;
-
 import gui.Gui;
-import main.Huffman;
+import struct.Char_Set;
+import struct.TreeNode;
 
 public class Reader {
 	
@@ -22,7 +19,8 @@ public	static List<Character> charList = new ArrayList<Character>();
  
 public void string_to_file(String str) {
 
-	 File file = null;
+	 @SuppressWarnings("unused")
+	File file = null;
 	 String absolutePath = "";
 	 
 	 FileNameExtensionFilter extensionFilter = new FileNameExtensionFilter("TEXT FILES", "txt", "text");

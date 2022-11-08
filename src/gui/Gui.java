@@ -1,10 +1,10 @@
 package gui;
 
-import lib.Char_Set;
 import lib.Coder;
 import lib.List_To_Tree;
-import lib.TreeNode;
 import main.Huffman;
+import struct.Char_Set;
+import struct.TreeNode;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -15,7 +15,6 @@ import java.util.List;
 import java.awt.BorderLayout;
 import java.awt.Container;
 
-import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.*;
 
 public class Gui extends JFrame implements ActionListener{
@@ -271,7 +270,7 @@ if(e.getSource().equals(custom_dataset)) {
 		{
 		
 			List_To_Tree makeTree = new List_To_Tree();
-			List<TreeNode> node_List = null;
+		//	List<TreeNode> node_List = null;
 			
 			try {
 				Huffman.node_List = Huffman.reader.file_to_List(file);

@@ -1,4 +1,4 @@
-package lib;
+package struct;
 
 public class Char_Set {
 	char character;
