@@ -15,11 +15,12 @@ import struct.TreeNode;
 public class Huffman {
 	
 	//public  static TreeNode frequency_Tree;
-	public static Reader reader = new Reader();	
+
 	public static final File default_file = new File("src/LetterCountAscending.txt");	//default file for frequency table
 	public static  TreeNode default_frequency_Tree;
 	public static List<TreeNode> default_node_List;	
 	
+	public static Reader reader = new Reader();	
 	
 	public static List<TreeNode> node_List;	
 	public static  TreeNode currTree;

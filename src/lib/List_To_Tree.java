@@ -18,7 +18,8 @@ public class List_To_Tree {
 	    
 	TreeNode root = new TreeNode(node_LocalNode.get(0).getItem())  ;
 	
-	while  (node_LocalNode.size() > 1) {			    
+	while  (node_LocalNode.size() > 1) {
+		
 	Collections.sort(node_LocalNode, new NodeComparator());
 	    
 	    int left_Frequency = node_LocalNode.get(0).getItem().getFrequency();
